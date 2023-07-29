@@ -1,4 +1,4 @@
-import Chart from 'chart.js/auto';
+
 import { Doughnut } from 'react-chartjs-2';
 import { useDispatch, useSelector } from 'react-redux';
 import { getExpensesPerCategory } from '../services/statistics';
