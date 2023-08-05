@@ -1,6 +1,7 @@
-# Getting Started with Create React App and Redux
-
+# 2023 MSA Frontend
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+
+See the backend [here](https://github.com/YvonneLiew/2023-MSA-Backend/tree/master).
 
 ## Available Scripts
 
