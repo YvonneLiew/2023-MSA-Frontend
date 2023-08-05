@@ -1,8 +1,12 @@
-
 import { Doughnut } from 'react-chartjs-2';
 import { useDispatch, useSelector } from 'react-redux';
 import { getExpensesPerCategory } from '../services/statistics';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(
+    Tooltip, Legend, ArcElement
+);
 
 const StatisticsPage = () => {
     const dispatch = useDispatch();
@@ -14,39 +18,36 @@ const StatisticsPage = () => {
     });
 
     useEffect(() => {
-        setDoughnut({
-            labels: expenseAmountPerCategory.map(x => x.Key),
-            data: expenseAmountPerCategory.map(x => x.Value),
-        })
-    }, [expenseAmountPerCategory]);
-
-    useEffect(() => {
         getExpensesPerCategory(dispatch);
     }, []);
+
+    useEffect(() => {
+        setDoughnut({
+            labels: expenseAmountPerCategory.map(x => x.key),
+            data: expenseAmountPerCategory.map(x => x.value),
+        })
+    }, [expenseAmountPerCategory]);
 
     const data = {
         labels: doughnut.labels,
         datasets: [{
             data: doughnut.data,
             backgroundColor: [
-            '#007bff',
-            '#FF0000',
-            '#FFD700',
-            '28a745',
-            '#00FFFF',
-            '#d69ae5',
+            '#AAE8F7',
+            '#F7AAC5',
+            '#F5D684',
+            '#A6F7C7',
+            '#CBA6F7',
+            '#F7B8A6',
+            '#F7D2A6'
             ]
         }],
-        title: {
-            text: 'Expenses per Category',
-            display: true,
-        },
     };
 
     return <div hidden={!expenseAmountPerCategory || !expenseAmountPerCategory.length}
-    style={{maxWidth: '35rem', maxHeight: '35rem', margin: 'auto', textAlign: 'center'}}>
+    style={{maxWidth: '35rem', maxHeight: '35rem', margin: 'auto', textAlign: 'center', paddingBottom: '20px'}}>
         <h4 style={{marginTop: '10px'}}>Expenses per Category</h4>
-        <Doughnut data={data} />
+        <Doughnut data = {data} />
     </div>;
 };
 

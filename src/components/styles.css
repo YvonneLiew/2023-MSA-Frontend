@@ -1,0 +1,61 @@
+/* styles.css */
+
+/* Media query for screens smaller than 576px (phones) */
+@media (max-width: 576px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    padding: 10px 20px 10px 0;
+  }
+
+  .navbar div {
+    padding-left: 25px; /* Remove padding for the div containing buttons */
+  }
+}
+
+/* Media query for screens larger than 576px (laptops and larger) */
+@media (min-width: 577px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between; /* Align items to opposite ends of the navbar */
+    align-items: center;
+    padding: 0 20px; /* Add horizontal padding for the whole navbar */
+  }
+}
+
+/* Add styles for the search bar input */
+/* .search-bar {
+  width: 100%;
+  padding: 5px 0 15px 0;
+  font-size: 16px;
+  border-bottom: 1px solid #ccc; 
+} */
+
+.search-bar {
+  margin: 10px 0;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.search-bar input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 5px 0 5px 10px;
+}
+
+.search-bar input::placeholder {
+  color: black;
+}
+
+
+
+
+
